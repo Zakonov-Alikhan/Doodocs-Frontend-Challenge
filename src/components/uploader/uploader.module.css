@@ -1,0 +1,29 @@
+.uploaderLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 82px;
+  padding: 32px 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px dashed #90959d;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.uploadDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 20px;
+  gap: 8px;
+}
+
+.uploaderLabel:hover .underline {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
