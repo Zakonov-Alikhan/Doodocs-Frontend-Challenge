@@ -142,7 +142,12 @@ table {
   gap: 24px;
 }
 
-textarea {
+.JSONContainer {
   height: 398px;
   padding: 0;
+  overflow-y: auto;
+}
+
+.docContainer {
+  grid-column: span 2;
 }

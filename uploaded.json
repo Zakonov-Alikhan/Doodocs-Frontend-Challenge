@@ -1,0 +1,39 @@
+[
+  {
+    "id": "c10fa4b0-e748-4d75-9b3b-bf6e56fe8a27",
+    "type": "INPUT_TEXT",
+    "name": "Ваше имя",
+    "is_required": true,
+    "attrs": {
+      "has_max": true,
+      "max": 255,
+      "has_min": true,
+      "min": 1
+    }
+  },
+  {
+    "id": "13fe0085-0e9e-424f-8f37-bcd00d804a2a",
+    "type": "INPUT_TEXT",
+    "name": "Ваша фамилия",
+    "is_required": true,
+    "attrs": {
+      "has_max": true,
+      "max": 255,
+      "has_min": true,
+      "min": 1
+    }
+  },
+  {
+    "id": "59b419cb-e358-4755-9fd3-9fb35e6655c9",
+    "type": "INPUT_TEXT",
+    "name": "Ваш ИИН (опционально)",
+    "is_required": false,
+    "attrs": {
+      "has_max": true,
+      "max": 12,
+      "has_min": true,
+      "min": 12,
+      "numeric": true
+    }
+  }
+]

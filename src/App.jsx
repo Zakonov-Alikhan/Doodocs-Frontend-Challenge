@@ -1,20 +1,37 @@
 import "./App.css";
-import Uploader from "./components/uploader/Uploader";
-import Button from "./components/UI/button/Button";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import UploaderPage from "./pages/UploaderPage";
+import FormPage from "./pages/FormPage";
 import { useState } from "react";
 
 function App() {
-  const [isDisabled, setIsDisabled] = useState(true);
-  console.log(isDisabled);
+  const [JSONContainer, setJSONContainer] = useState("");
 
   return (
-    <div className="App">
-      <div className="uploadPage">
-        <Uploader />
-        <textarea name="Json staff" disabled></textarea>
-        <Button isDisabled={isDisabled}>Далее</Button>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <UploaderPage
+                JSONContainer={JSONContainer}
+                setJSONContainer={setJSONContainer}
+              />
+            }
+          />
+          <Route
+            path="form"
+            element={<FormPage JSONContainer={JSONContainer} />}
+          />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
