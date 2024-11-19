@@ -1,5 +1,5 @@
 import classes from "./document.module.css";
-import { useFetchData } from "../../hooks/useFetchData";
+import useFetchData from "../../hooks/useFetchData";
 
 export default function Document({ formData }) {
   const { data, error } = useFetchData("http://localhost:5000/api/uploaded");

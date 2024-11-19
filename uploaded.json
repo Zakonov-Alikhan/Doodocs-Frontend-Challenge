@@ -12,18 +12,6 @@
     }
   },
   {
-    "id": "13fe0085-0e9e-424f-8f37-bcd00d804a2a",
-    "type": "INPUT_TEXT",
-    "name": "Ваша фамилия",
-    "is_required": true,
-    "attrs": {
-      "has_max": true,
-      "max": 255,
-      "has_min": true,
-      "min": 1
-    }
-  },
-  {
     "id": "59b419cb-e358-4755-9fd3-9fb35e6655c9",
     "type": "INPUT_TEXT",
     "name": "Ваш ИИН (опционально)",
