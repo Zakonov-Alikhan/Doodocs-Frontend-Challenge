@@ -16,7 +16,7 @@ const PORT = 5000;
 app.use(cors()); // Для разрешения запросов с другого origin
 app.use(bodyParser.json()); // Для работы с JSON
 
-// Маршрут для получения шаблона
+// Тестовый маршрут для проверки работы сервера
 app.get("/api/template", (req, res) => {
   res.json({ message: "Сервер работает!" });
 });
@@ -29,16 +29,35 @@ app.post("/api/upload", (req, res) => {
     return res.status(400).json({ error: "Данные должны быть массивом JSON" });
   }
 
-  // Сохранение данных в файл
   const filePath = path.join(__dirname, "uploaded.json");
   fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
     if (err) {
-      console.error("Ошибка записи файла:", err);
-      return res.status(500).json({ error: "Не удалось сохранить файл" });
+      return res.status(500).json({ error: "Ошибка записи файла" });
     }
-
     res.json({ message: "Данные успешно загружены и сохранены" });
   });
+});
+
+app.get("/api/uploaded", (req, res) => {
+  const filePath = path.join(__dirname, "uploaded.json");
+
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: "Ошибка чтения файла" });
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData); // Отправляем данные обратно клиенту
+    } catch (parseError) {
+      return res.status(500).json({ error: "Ошибка при обработке данных" });
+    }
+  });
+});
+
+// Обработчик неизвестных маршрутов
+app.use((req, res) => {
+  res.status(404).json({ error: "Маршрут не найден" });
 });
 
 // Запуск сервера

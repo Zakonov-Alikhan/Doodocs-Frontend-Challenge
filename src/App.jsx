@@ -25,10 +25,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="form"
-            element={<FormPage JSONContainer={JSONContainer} />}
-          />
+          <Route path="form" element={<FormPage />} />
         </Routes>
       </div>
     </BrowserRouter>

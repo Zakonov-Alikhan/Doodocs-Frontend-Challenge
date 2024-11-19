@@ -151,3 +151,12 @@ table {
 .docContainer {
   grid-column: span 2;
 }
+
+aside {
+  display: flex;
+  justify-content: right;
+  /* width: 360px; */
+  height: 824px;
+  padding-top: 20px;
+  padding-right: 20px;
+}

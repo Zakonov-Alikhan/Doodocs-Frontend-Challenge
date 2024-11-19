@@ -1,8 +1,53 @@
-# React + Vite
+# DooDocs Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект реализует интерфейс для работы с шаблонами документов. Позволяет загружать HTML-шаблоны с переменными, заполнять их через динамически сгенерированную форму и валидировать введенные данные.
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Загрузка шаблонов**: Поддержка загрузки HTML-файлов с переменными в формате `{{ input "id" }}`.
+- **Динамические формы**: Автоматическая генерация формы на основе JSON-структуры переменных.
+- **Валидация данных**: Проверка заполненности полей, числовых значений и длины с использованием `Formik` и `Yup`.
+- **Изоляция стилей**: Стили HTML-шаблона не конфликтуют с интерфейсом приложения.
+
+## Используемые технологии
+
+- **React**: Фреймворк для создания пользовательского интерфейса.
+- **Formik**: Удобный инструмент для работы с формами.
+- **Yup**: Библиотека для валидации данных.
+- **Vite**: Быстрый инструмент сборки.
+
+## Как запустить проект
+
+1. **Клонируйте репозиторий**  
+   Выполните команду:
+
+   ```bash
+   git clone https://github.com/Zakonov-Alikhan/doodocs-frontend-challenge.git
+   ```
+
+2. **Перейдите в директорию проекта**  
+   Используйте команду:
+
+   ```bash
+   cd doodocs-frontend-challenge
+   ```
+
+3. **Установите зависимости**  
+   Убедитесь, что у вас установлен Node.js, затем выполните:
+
+   ```bash
+   npm install
+   ```
+
+4. **Запустите проект в режиме разработки**  
+   Введите следующую команду:
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Откройте приложение в браузере**  
+   Перейдите по адресу:
+   ```
+   http://localhost:3000
+   ```

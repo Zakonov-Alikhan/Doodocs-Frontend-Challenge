@@ -1,26 +1,26 @@
+// DocumentForm.jsx
 import { useState } from "react";
 import classes from "./documentForm.module.css";
+import FormInput from "../UI/formInput/FormInput";
+import useFetchData from "../../hooks/useFetchData";
 
-export default function DocumentForm() {
-  const [data, setData] = useState([]);
+export default function DocumentForm({ setFormData }) {
+  const { data, error } = useFetchData("http://localhost:5000/api/uploaded");
 
-  async function getData() {
-    try {
-      const response = await fetch("http://localhost:5000/api/upload");
-      if (!response.ok) {
-        throw new Error("Ошибка загрузки данных");
-      }
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      console.error(`Ошибка: `, error);
-    }
+  const handleInputChange = (name, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  if (error) {
+    return <p>{error}</p>;
   }
-  getData();
 
   return (
     <aside>
-      <form>
+      <form className={classes.form}>
         <div className={classes.formDescription}>
           <h2 className={classes.h2}>Пожалуйста, заполните данные</h2>
           <p className={classes.p}>
@@ -29,14 +29,18 @@ export default function DocumentForm() {
           </p>
         </div>
 
-        <div>
-          <div>
-            {/* {Array.isArray(data) ? (
-              data.map((item) => <div key={item.id}>{item.name}</div>)
-            ) : (
-              <p>Загрузка...</p>
-            )} */}
-          </div>
+        <div className={classes.inputList}>
+          {Array.isArray(data) && data.length > 0 ? (
+            data.map((item) => (
+              <FormInput
+                key={item.id}
+                item={item}
+                onChange={handleInputChange}
+              />
+            ))
+          ) : (
+            <p>Загрузка...</p>
+          )}
         </div>
       </form>
     </aside>
